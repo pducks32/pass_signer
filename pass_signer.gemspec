@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.version       = PassSigner::VERSION
   spec.authors       = ['Patrick Metcalfe']
   spec.email         = ['git@patrickmetcalfe.com']
-
+  spec.license       = 'GPL-3.0'
   spec.summary       = 'Signs passes for Apple Wallet.'
   spec.description   = 'Apple Wallet passes require signing. Apple provides code for this, it isnt ideal.'
   spec.homepage      = 'https://github.com/pducks32/pass_signer'
