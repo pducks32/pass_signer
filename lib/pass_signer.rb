@@ -1,4 +1,10 @@
 require "pass_signer/version"
+require 'fileutils'
+require 'tmpdir'
+require 'digest/sha1'
+require 'json'
+require 'openssl'
+require 'zip'
 
 class PassSigner
   class Error < StandardError; end
