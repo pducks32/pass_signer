@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "pass_signer"
+require "pathname"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +12,10 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  config.include(Module.new do
+    def sample_store_pass_path
+      Pathname(__FILE__) + "../fixtures/StoreCard.pass/"
+    end
+  end)
 end
