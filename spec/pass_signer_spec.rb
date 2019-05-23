@@ -1,13 +1,15 @@
-require "pathname"
-require "tmpdir"
+# frozen_string_literal: true
+
+require 'pathname'
+require 'tmpdir'
 
 RSpec.describe PassSigner do
-  it "has a version number" do
+  it 'has a version number' do
     expect(PassSigner::VERSION).not_to be nil
   end
 
-  it "compresses a valid pass into a pkpass" do
-    Tempfile.create('pass-signing-tests/StoreCard.pass') do |output|
+  it 'compresses a valid pass into a pkpass' do
+    Tempfile.create(['pass-signing-tests/StoreCard', '.pkpass']) do |output|
       signer = PassSigner.new(sample_store_pass_path.to_s, nil, nil, nil, output)
       signer.validate_directory_as_unsigned_raw_pass
       signer.create_temporary_directory
@@ -18,6 +20,8 @@ RSpec.describe PassSigner do
 
       path_file = Pathname(output)
       expect(path_file.exist?).to be true
+      expect(path_file.extname).to eq '.pkpass'
+      expect(path_file.file?).to be true
     end
   end
 end

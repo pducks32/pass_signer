@@ -1,4 +1,6 @@
-require "pass_signer/version"
+# frozen_string_literal: true
+
+require 'pass_signer/version'
 require 'fileutils'
 require 'tmpdir'
 require 'digest/sha1'
